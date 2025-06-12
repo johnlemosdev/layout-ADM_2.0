@@ -1,0 +1,45 @@
+/* HEADER */
+.cabecalho {
+  display: flex;
+  height: 4em;
+  justify-content: space-between;
+  padding: 0.3em 1em;
+  background-color: var(--cinza-borda);
+  color: var(--preto-fonte);
+}
+
+.logo {
+  font-size: 24px;
+  margin: 0;
+  font-family: "inter";
+}
+
+.cabecalho__esquerda,
+.cabecalho__centro,
+.cabecalho__direita {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  margin: none;
+  height: 100%;
+}
+
+.cabecalho__centro {
+  justify-content: center;
+}
+
+.cliente {
+  font-size: 18px;
+}
+
+.cabecalho__direita {
+  justify-content: flex-end;
+}
+
+/* NAV BAR */
+.menu-barra {
+  background-color: var(--branco);
+  height: 3em;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+  color: var(--preto-fonte);
+}

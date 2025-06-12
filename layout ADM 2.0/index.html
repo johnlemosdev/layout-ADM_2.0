@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout ADM 2.0</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:wght@300;400;500;700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+    integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous"></script>
+</head>
+
+  <header class="cabecalho">  
+      <div class="cabecalho__esquerda">
+        <h1 class="logo">Servlet</h1>
+      </div>
+
+      <div class="cabecalho__centro">
+        <h2 class="cliente">cliente</h2>
+      </div>
+
+      <div class="cabecalho__direita">
+        <a href="#"><img src="imgs/user.svg" alt="Perfil" id="icone-perfil" class="icone-perfil"></a>
+      </div>
+</header>
+
+<div class="menu-barra">
+    <!-- BOTAO MENU -->
+    <button class="menu" id="menu">&#9776;</button>
+    
+
+    <div class="abas-container">
+        <ul class="container">
+            <li rel="aba-inicio" class="abas">Inicio</li> <!--class selecionada-->
+            <li rel="aba-relatorios" class="abas">Relatorios</li>
+            <li rel="aba-cadastrar" class="abas">Cadastrar</li>
+            <li rel="aba-editar" class="abas">Editar</li>
+            <li rel="aba-clientes" class="abas">Clientes</li>
+        </ul>
+
+        
+
+        <div id="aba-inicio" class="conteudo"> <!--class active-->
+            inicio <br>
+            inicio <br>
+            inicio <br>
+            inicio <br>
+        </div>
+
+         <div id="aba-relatorios" class="conteudo">
+            relatorios <br>
+            relatorios <br>
+            relatorios <br>
+            relatorios <br>
+        </div>
+
+        <div id="aba-cadastrar" class="conteudo">
+           Cadastrar <br>
+           Cadastrar <br>
+           Cadastrar <br>
+           Cadastrar <br>
+        </div>
+
+        <div id="aba-editar" class="conteudo">
+            Editar <br>
+            Editar <br>
+            Editar <br>
+            Editar <br>
+       </div>
+
+         <div id="aba-clientes" class="conteudo">
+            clientes <br>
+            clientes <br>
+            clientes <br>
+            clientes <br>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- MENU LISTA -->
+<div id="popup-menu" class="menu-popup">
+  <ul class="menu__lista">
+    <li class="menu__item"><a class="menu__item-link" href="#" data-tab="inicio">Inicio</a></li>
+    <li class="menu__item"><a class="menu__item-link" href="#" data-tab="relatorios">Relatorios</a></li>
+    <li class="menu__item"><a class="menu__item-link acordion-header" href="#">Produtos <i class="fa-solid fa-chevron-down arrow"></i></a></li>
+    
+    <div class="acordion">
+    <div class="acordion-content "> <!--classe open-->
+      <ul class="menu__lista-acordion">
+        <li class="menu__item menu__item-acordion"><a class="menu__item-link" href="#" data-tab="cadastrar">Cadastrar</a></li>
+        <li class="menu__item menu__item-acordion"><a class="menu__item-link" href="#" data-tab="editar">Editar</a></li>
+      </ul>
+    </div>
+  </div>
+
+    <li class="menu__item last-child"><a class="menu__item-link" href="#" data-tab="clientes">Cliente</a></li>
+</ul>
+</div>
+
+<!-- PERFIL LISTA -->
+<div id="popup-perfil" class="perfil-popup">
+    <ul class="perfil__lista">
+      <li class="perfil__lista-item">
+        <a href="#" class="perfil__lista-link">Alterar Senha</a></li>
+        
+      <li class="perfil__lista-item last-child">
+        <a href="#" class="perfil__lista-link">Sair</a></li>
+    </ul>
+</div>
+
+    <script src="main.js"></script>
+</body>
+</html>

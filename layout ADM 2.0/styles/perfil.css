@@ -1,0 +1,62 @@
+/* PERFIL */ 
+.icone-perfil {
+  width: 30px;
+  height: 30px;
+  margin: 10px; 
+}
+
+.icone-perfil:hover {
+  background-color: #4DC9C2;
+  border-radius: 10px;
+  width: 35px;
+  height: 35px;
+}
+
+.perfil-popup {
+  display: none;
+  max-width: 15em;
+  max-height: 60vh;
+  top: 4.5em;
+  margin-left: 76.3em;
+  z-index: 2;
+  position: absolute;
+  
+}
+
+.perfil-popup.ativo {
+  display: block;
+}
+
+.perfil__lista {
+    background-color: white;
+    width: 100%;
+    padding: 0.5em 0;
+    border: solid 3px rgba(0, 0, 0, 0.15);
+    border-radius: 8px 0 8px 8px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.15);
+   
+}
+
+.perfil__lista-item {
+  padding: 1em;
+  margin: none;
+  font-size: 15px;
+  font-family: "poppins";
+  font-weight: 400;
+  border-bottom: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.last-child {
+  border-bottom: none;
+}
+
+.perfil__lista-link {
+  text-decoration: none;
+  color: black;
+}
+
+.perfil__lista-link:hover {
+  background-color: var(--cinza-borda);
+  border-radius: 4px;
+  padding: 0.2em;
+}

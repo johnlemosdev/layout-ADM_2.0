@@ -1,0 +1,90 @@
+/* BOTAO MENU */
+.menu {
+    background-color: var(--branco);
+    border: none;
+    font-size: 30px;
+    height: 100%;
+    margin: 0;
+    padding: 0 15px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.menu:hover {
+    background-color: #4DC9C2;
+}
+
+.menu-popup {
+    display: none;
+    max-width: 18em;
+    max-height: 60vh;
+    position: absolute;
+    z-index: 3;
+    margin-top: 0.3em;
+    margin-left: 0.3em;
+}
+
+.menu-popup.ativo {
+    display: block;
+}
+
+.menu__lista {
+    background-color: white;
+    width: 10em;
+    padding: 0.2em 0;
+    border: solid 3px rgba(0, 0, 0, 0.15);
+    border-radius: 0 8px 8px 8px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.30);
+    
+}
+
+.menu__item {
+    padding: 1em;
+    margin: none;
+    font-size: 14px;
+    font-family: "poppins";
+    font-weight: 400;
+    border-bottom: 3px solid rgba(0, 0, 0, 0.15);    
+}
+
+.last-child {
+  border-bottom: none;
+}
+
+.menu__item-link {
+    text-decoration: none;
+    color: black;   
+}
+
+.menu__item-link:hover {
+  background-color: var(--cinza-borda);
+  border-radius: 4px;
+  padding: 0.2em;
+}
+
+.acordion-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+.menu__item-acordion {
+    font-size: 12px;
+    font-weight: 400;
+    margin-left: 1em;
+    padding: 0.6em;
+}
+
+.acordion-content {
+    display: none;
+}
+
+.acordion-content.open {
+    display: block;
+}
+
+.acordion-content.arrow .open {
+    display: block;
+    transform: rotate(180deg);
+}

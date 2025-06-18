@@ -13,22 +13,69 @@ $(document).ready(function () {
     $('.acordion-content').toggleClass('open')
   });
 
+
+// (1) Adiciona botão de fechar às abas existentes (uma vez ao carregar)
+$('.abas-container .container li').each(function () {
+  if (!$(this).find('.fechar-aba').length) {
+    $(this).append('<span class="fechar-aba">×</span>');
+  }
+});
+
+$('.abas-container').on('click', '.fechar-aba', function (e) {
+  e.stopPropagation(); // Impede que o clique selecione a aba
+
+  const $abaFechada = $(this).closest('li');
+  const abaRel = $abaFechada.attr('rel');
+  const isSelecionada = $abaFechada.hasClass('selecionada');
+
+// Esconde o conteúdo da aba
+  $('#' + abaRel).hide().removeClass('active');
+
+    // Remove a aba da barra
+  $abaFechada.remove();
+
+  
+  // Se a aba fechada era a selecionada
+  if (isSelecionada) {
+    let $abaAnterior = $abaFechada.prev('.aberta').first(); // procura anterior aberta
+
+    if ($abaAnterior.length === 0) {
+      // Se não tem anterior, pega a primeira aba aberta restante
+      $abaAnterior = $('.abas-container .container li.aberta').last();
+    }
+
+    if ($abaAnterior.length > 0) {
+      // Ativa essa aba
+      $abaAnterior.addClass('selecionada');
+
+      const relAnterior = $abaAnterior.attr('rel');
+      $('#' + relAnterior).show().addClass('active');
+    }else {
+      // Se não houver mais nenhuma aba aberta, esconde tudo
+      $('.conteudo').hide().removeClass('active');
+    }
+  }
+  
+});
+
+  
+
     
     //Ativa uma aba (se já existe ou foi recém-criada)
     function ativarAba(abaRel, nomeAba = null) {
       const $container = $('.abas-container');
       const $listaAbas = $container.find('.container');
-  
+
         // Procurar aba pela referência
         let $aba = $listaAbas.find('li[rel="' + abaRel + '"]');
     
         //Se a aba ainda não existe, criamos ela
         if ($aba.length === 0 && nomeAba) {
           $aba = $('<li>')
-            .addClass('.abas .aberta')
-            .attr('rel', abaRel)
-            .text(`${nomeAba} <button class="fechar-aba" title="Fechar aba">x</button>`);
-          $listaAbas.append($aba);
+          .addClass('abas')
+          .attr('rel', abaRel)
+          .html(nomeAba + '<span class="fechar-aba">×</span>');;        
+        $listaAbas.append($aba);
         }
     
         //Marca a aba como 'selecionada', sem esconder as outras
@@ -36,8 +83,8 @@ $(document).ready(function () {
         $aba.addClass('selecionada');
 
         // Se não tiver sido aberta antes, marca como 'aberta' para ficar visível
-  if (!$aba.hasClass('aberta')) {
-    $aba.addClass('aberta');
+        if (!$aba.hasClass('aberta')) {
+          $aba.addClass('aberta');
   }
     
         //Troca o conteúdo visível (somente 1 por vez)
@@ -59,34 +106,15 @@ $(document).ready(function () {
       const tab = $(this).data('tab');        // Ex: "inicio"
       const abaRel = 'aba-' + tab;            // Ex: "aba-inicio"
       const nomeAba = tab.charAt(0).toUpperCase() + tab.slice(1); // Capitaliza
+      
       ativarAba(abaRel, nomeAba);
     });
 
-    // Evento de clique no botão de fechar aba
-$('.abas-container .container').on('click', '.fechar-aba', function (e) {
-  e.stopPropagation(); // Evita ativar a aba ao clicar no "X"
 
-  const $aba = $(this).closest('li');
-  const rel = $aba.attr('rel');
 
-  const isSelecionada = $aba.hasClass('selecionada');
 
-  // Remove a aba da navbar
-  $aba.remove();
 
-  // Esconde o conteúdo da aba
-  $('#' + rel).removeClass('active').hide();
-
-  // Se a aba fechada era a selecionada, ativa a anterior ou a última aba aberta
-  if (isSelecionada) {
-    const $ultimasAbertas = $('.abas.aberta');
-    if ($ultimasAbertas.length) {
-      const $ultima = $ultimasAbertas.last();
-      const novoRel = $ultima.attr('rel');
-      ativarAba(novoRel);
-    }
-  }
-});
+    
 
   
  
